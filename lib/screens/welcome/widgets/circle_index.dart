@@ -1,4 +1,3 @@
-import 'package:cafit/constants/colors.dart';
 import 'package:cafit/constants/imports.dart';
 import 'package:cafit/constants/sizer.dart';
 
@@ -15,22 +14,31 @@ class CircleIndex extends StatelessWidget {
       child: SizedBox(
         child: Row(
           children: [
-            _circles(),
+            _circles(
+                iconColor: context.watch<WelcomeProvider>().step == 0
+                    ? kMainColor
+                    : kInactiveColor),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: kWidth(17.0).w,
               ),
-              child: _circles(),
+              child: _circles(
+                  iconColor: context.watch<WelcomeProvider>().step == 1
+                      ? kMainColor
+                      : kInactiveColor),
             ),
-            _circles(),
+            _circles(
+                iconColor: context.watch<WelcomeProvider>().step == 2
+                    ? kMainColor
+                    : kInactiveColor),
           ],
         ),
       ),
     );
   }
 
-  CircleAvatar _circles() => CircleAvatar(
+  CircleAvatar _circles({Color iconColor = kInactiveColor}) => CircleAvatar(
         radius: 6.0,
-        backgroundColor: kInactiveColor,
+        backgroundColor: iconColor,
       );
 }

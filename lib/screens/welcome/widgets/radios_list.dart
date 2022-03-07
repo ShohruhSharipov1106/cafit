@@ -1,6 +1,5 @@
 import 'package:cafit/constants/imports.dart';
 import 'package:cafit/constants/sizer.dart';
-import 'package:gap/gap.dart';
 
 class RadiosList extends StatefulWidget {
   const RadiosList({Key? key}) : super(key: key);
@@ -16,85 +15,59 @@ class _RadiosListState extends State<RadiosList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        RadioListTile(
-          value: 1,
-          groupValue: fitnessLevel,
-          onChanged: (value) {
-            fitnessLevel = 1;
-            setState(() {});
-          },
-          title: Text(
-            "Beginner",
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(fontSize: 20.0),
-          ),
-          subtitle: Text(
-            "You are new to fitness training",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.w400,
-              color: fitnessLevel == 1 ? kMainColor : kGreyBackground,
-            ),
-          ),
-          activeColor: kMainColor,
-          controlAffinity: ListTileControlAffinity.trailing,
+        _radio(
+          context,
+          1,
+          "Beginner",
+          "You are new to fitness training",
         ),
         _divider(),
-        RadioListTile(
-          value: 2,
-          groupValue: fitnessLevel,
-          onChanged: (value) {
-            fitnessLevel = 2;
-            setState(() {});
-          },
-          title: Text(
-            "Intermediate",
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(fontSize: 20.0),
-          ),
-          subtitle: Text(
-            "You have been training regularly",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.w400,
-              color:fitnessLevel == 2 ? kMainColor : kGreyBackground,
-            ),
-          ),
-          activeColor: kMainColor,
-          controlAffinity: ListTileControlAffinity.trailing,
+        _radio(
+          context,
+          2,
+          "Intermediate",
+          "You have been training regularly",
         ),
         _divider(),
-        RadioListTile(
-          value: 3,
-          groupValue: fitnessLevel,
-          onChanged: (value) {
-            fitnessLevel = 3;
-            setState(() {});
-          },
-          title: Text(
-            "Advanced",
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(fontSize: 20.0),
-          ),
-          subtitle: Text(
-            "You're fit and ready for an intensive\nworkout plan",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.w400,
-              color: fitnessLevel == 3 ? kMainColor : kGreyBackground,
-            ),
-          ),
-          activeColor: kMainColor,
-          controlAffinity: ListTileControlAffinity.trailing,
+        _radio(
+          context,
+          3,
+          "Advanced",
+          "You're fit and ready for an intensive\nworkout plan",
         ),
-        Gap(kHeight(100.0).h),
+        SizedBox(height: kHeight(144.0).h),
       ],
+    );
+  }
+
+  RadioListTile<int> _radio(
+    BuildContext context,
+    int val,
+    String title,
+    String subtitle,
+  ) {
+    return RadioListTile(
+      value: val,
+      groupValue: fitnessLevel,
+      onChanged: (value) {
+        fitnessLevel = val;
+        setState(() {});
+      },
+      title: Text(
+        title,
+        style:
+            Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 20.0),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.w400,
+          color: fitnessLevel == val ? kMainColor : kGreyBackground,
+        ),
+      ),
+      activeColor: kMainColor,
+      controlAffinity: ListTileControlAffinity.trailing,
     );
   }
 

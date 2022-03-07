@@ -1,13 +1,24 @@
-import 'package:cafit/constants/colors.dart';
 import 'package:cafit/constants/imports.dart';
 import 'package:cafit/screens/menu/menu_page.dart';
+import 'package:cafit/screens/onboarding/onboarding_page.dart';
+import 'package:cafit/screens/welcome/step_1_page.dart';
 import 'package:cafit/screens/welcome/step_2_page.dart';
 
-void main() {
-  runApp(MyApp());
+
+main() async {
+  await GetStorage.init();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => WelcomeProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -65,7 +76,9 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          home: const Step2Page(),
+          home: box.read('onboard') == 'first in app'
+              ? OnBoardingPage()
+              : Step1Page(),
         );
       },
     );

@@ -7,7 +7,7 @@ class Step3Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: welcomeAppBar(),
+      appBar: welcomeAppBar(context),
       body: Column(),
     );
   }

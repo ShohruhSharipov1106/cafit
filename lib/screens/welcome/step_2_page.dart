@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-
 import 'package:cafit/constants/imports.dart';
 import 'package:cafit/constants/sizer.dart';
 import 'package:cafit/screens/welcome/widgets/circle_index.dart';
@@ -16,17 +15,16 @@ class Step2Page extends StatefulWidget {
 }
 
 class _Step2PageState extends State<Step2Page> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: welcomeAppBar(),
+      appBar: welcomeAppBar(context),
       body: Column(
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: kWidth(50.0).w,
-              vertical: kHeight(30.0).h,
+              vertical: kHeight(28.0).h,
             ),
             child: Text(
               "Select your fitness level",
@@ -36,13 +34,12 @@ class _Step2PageState extends State<Step2Page> {
                   .copyWith(fontSize: 24.0),
             ),
           ),
-        const  RadiosList(),
-          const ElevatedButtonWidget(),
+          SizedBox(height: kHeight(25.0).h),
+          const RadiosList(),
+          ElevatedButtonWidget("Next"),
           const CircleIndex()
         ],
       ),
     );
   }
-
-  
 }
