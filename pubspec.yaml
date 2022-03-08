@@ -40,6 +40,8 @@ dependencies:
   flutter_svg: ^1.0.3
   sizer: ^2.0.15
   flutter_neumorphic: ^3.2.0
+  flutter_cupertino_date_picker_fork: ^1.0.6
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

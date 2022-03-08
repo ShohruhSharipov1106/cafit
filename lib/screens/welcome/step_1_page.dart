@@ -1,8 +1,7 @@
 import 'package:cafit/constants/imports.dart';
-import 'package:cafit/constants/sizer.dart';
+import 'package:cafit/screens/welcome/step_2_page.dart';
 import 'package:cafit/screens/welcome/widgets/circle_index.dart';
 import 'package:cafit/screens/welcome/widgets/elevated_button.dart';
-import 'package:cafit/screens/welcome/widgets/radios_list.dart';
 import 'package:cafit/screens/welcome/widgets/welcome_app_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,6 +10,7 @@ class Step1Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: welcomeAppBar(context),
       body: Column(
@@ -43,8 +43,20 @@ class Step1Page extends StatelessWidget {
           SizedBox(
             height: kHeight(106.0).h,
           ),
-          ElevatedButtonWidget("Get Started"),
-          CircleIndex()
+          ElevatedButtonWidget(
+            "Get Started",
+            () {
+              context.read<WelcomeProvider>().incrementStep();
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const Step2Page(),
+                ),
+                (route) => false,
+              );
+            },
+          ),
+          const CircleIndex()
         ],
       ),
     );

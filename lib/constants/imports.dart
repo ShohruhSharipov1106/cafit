@@ -6,3 +6,7 @@ export 'package:cafit/constants/colors.dart';
 export 'package:get_storage/get_storage.dart';
 export 'package:provider/provider.dart';
 export 'package:cafit/providers/welcome_provider.dart';
+export 'package:cafit/widgets/divide.dart';
+export 'package:cafit/constants/sizer.dart';
+export 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker_fork.dart';
+export 'package:cafit/providers/step_3_provider.dart';

@@ -9,5 +9,7 @@ AppBar welcomeAppBar(
               color: kGreyBackground,
             )
           : const SizedBox(),
-      title: Text("Step ${context.watch<WelcomeProvider>().step + 1} of 3"),
+      title: Text(
+        "Step ${context.watch<WelcomeProvider>().step + 1} of 3",
+      ),
     );

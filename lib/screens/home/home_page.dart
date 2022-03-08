@@ -5,6 +5,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        leading: const BackButton(),
+        backgroundColor: kMainColor,
+        elevation: 0,
+        title: Text(
+          "Cafit Fitness Application",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ),
+    );
   }
 }
